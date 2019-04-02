@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+    php:
+        build: ./php-fpm
+        ports:
+            - "9000:9001"
+        volumes:
+            - ./symfony:/var/www/symfony:cached
+            - ./logs/symfony:/var/www/symfony/var/log:cached
+        links:
+            - redis
+        extra_hosts:
+            - "docker-host.localhost:127.0.0.1"
+    nginx:
+        build: ./nginx
+        ports:
+            - "80:80"
+        links:
+            - php
+        volumes:
+            - ./logs/nginx:/var/log/nginx:cached
+            - ./symfony:/var/www/symfony:cached
+    redis:
+        image: redis
+        ports:
+            - "6379:5379"
+        volumes:
+            - ./data/redis:/data
+        restart: always
+

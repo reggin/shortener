@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <form action="" method="post">
+                <input type="text" name="url" />
+                <input type="submit">
+            </form>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
