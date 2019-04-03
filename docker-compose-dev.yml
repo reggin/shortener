@@ -5,7 +5,7 @@ services:
         ports:
             - "9000:9001"
         volumes:
-            - ./symfony:/var/www/symfony:cached
+            - app-sync:/var/www/symfony:cached
             - ./logs/symfony:/var/www/symfony/var/log:cached
         links:
             - redis
@@ -19,7 +19,7 @@ services:
             - php
         volumes:
             - ./logs/nginx:/var/log/nginx:cached
-            - ./symfony:/var/www/symfony:cached
+            - app-sync:/var/www/symfony:cached
     redis:
         image: redis
         hostname: redis
@@ -29,3 +29,6 @@ services:
             - ./data/redis:/data
         restart: always
 
+volumes:
+    app-sync:
+        external: true

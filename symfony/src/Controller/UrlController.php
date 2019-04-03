@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class UrlController extends AbstractController
 {
@@ -70,7 +71,8 @@ class UrlController extends AbstractController
 
         return new JsonResponse(['urlShortener' => $this->generateUrl(
             'redirect_by_code',
-            ['urlCode' => $urlCode->__toString()]
+            ['urlCode' => $urlCode->__toString()],
+            UrlGeneratorInterface::ABSOLUTE_URL
         )]);
     }
 }
