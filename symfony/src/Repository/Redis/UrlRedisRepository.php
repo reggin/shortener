@@ -3,10 +3,9 @@
 namespace App\Repository\Redis;
 
 use App\DTO\UrlCodeDTO;
-use App\Repository\UrlRepositoryInterface;
 use Predis\Client;
 
-class UrlRedisRepository implements UrlRepositoryInterface
+class UrlRedisRepository
 {
 
     private const URL_HASH_TEMPLATE = 'url_hash_%s';

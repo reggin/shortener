@@ -54,6 +54,11 @@ class UrlManager
         return $url;
     }
 
+    /**
+     * @param string $url
+     *
+     * @return UrlCodeDTO
+     */
     public function saveUrl(string $url): UrlCodeDTO
     {
         $urlCodeDTO = $this->urlGenerator->generateUrlCode();
