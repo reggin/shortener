@@ -6,7 +6,6 @@ namespace App\Service;
 
 use App\DTO\UrlCodeDTO;
 use App\Repository\Redis\UrlRedisRepository;
-use App\Repository\UrlRepositoryInterface;
 
 class UrlGenerator
 {
@@ -18,7 +17,7 @@ class UrlGenerator
     private const HASH_LENGTH = 4;
 
     /**
-     * @var UrlRepositoryInterface
+     * @var UrlRedisRepository
      */
     private $urlRepository;
 
